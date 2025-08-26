@@ -12,7 +12,18 @@ export const PagePrincipal = () => {
                     <input type="text" />
                     <MdOutlineSearch className="searchIcon"/>
                 </form>
-                <div>
+                <div className="gamesRow">
+                    <div className="games" id="reddead">
+
+                    </div> 
+                    <div className="games">
+
+                    </div>
+                    <div className="games">
+
+                    </div>
+                   
+                    
 
                 </div>
 

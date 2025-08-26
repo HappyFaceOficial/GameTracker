@@ -24,11 +24,10 @@
 .containerGames{
     padding: 20px;
     border-radius: 30px;
-    width: 80%;
+    width: 85%;
     height: 700px;
     background: #000000;
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(13, 13, 13, 1) 61%, rgba(59, 59, 59, 1) 100%);
-
 
     }
 
@@ -36,6 +35,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .searchIcon{
@@ -48,4 +48,41 @@
     height: 20px;
     padding-left: 10px;
 
+}
+
+.gamesRow{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+
+}
+
+.games{
+    width: 300px;
+    height: 350px;
+    background-color: #bcccf7;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    font-size: 0.8em;
+
+}
+
+
+#reddead{
+    background-image: url("../assets/Red_Dead_Redemption_II.jpg");
+    background-position-x: -30px;
+        
+}
+
+#reddead:hover{
+    background: linear-gradient(rgba(39, 37, 37, 0.774),rgba(29, 27, 27, 0.856)),url("../assets/Red_Dead_Redemption_II.jpg");
+    background-position-x: -30px;
+    cursor: pointer;
+
+
+
+
+        
 }
