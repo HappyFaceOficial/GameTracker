@@ -8,9 +8,15 @@ export const PagePrincipal = () => {
                 <h1>GameTracker</h1>
             </div>
             <div className="containerGames">
-                <form action="">
+                <form>
+                    <div className="searchBar">
                     <input type="text" />
                     <MdOutlineSearch className="searchIcon"/>
+                    </div>
+                    <select name="" id="">Ano de Lançamento</select>
+                    <select name="" id="">Genero</select>
+
+
                 </form>
                 <div className="gamesRow">
                     <div className="games" id="reddead">
