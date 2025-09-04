@@ -1,9 +1,9 @@
 import { useState } from "react"
-import backGround from "../assets/backGround.jpg";
+import backGround from "../assets/bggametracker.webp";
 import logoPixel from '../assets/logo_pixel.png';
-import "./painelLogin.css"
+import "./PageLogin.css"
 
-export default function TelaLogin() {
+export const PageLogin = ()=> {
   const [botaos, setBotaos] = useState({ email: "", senha: "" });
 
   const handleChange = (e) => {
