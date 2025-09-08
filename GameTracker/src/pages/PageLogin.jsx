@@ -27,7 +27,7 @@ export const PageLogin = ()=> {
 
       <main>
         <div className="backGround">
-          <img src={backGround} alt="Background"  />
+
         </div>
 
         <form className="painelCentral">
@@ -58,6 +58,23 @@ export const PageLogin = ()=> {
 
         </form>
       </main>
+
+      <div className="barra_embaixo">
+          <footer>
+            <div className="texto_embaixo">
+              <h3> Contatos </h3>
+              <h3> Suporte </h3>
+              <h3> Termos </h3>
+              <h3> Privacidade </h3>
+            </div>
+            
+            <div className="texto_abaixo">
+            <h4>Texto abaixo apsosskjgaksga</h4>
+            </div>
+            
+          </footer>
+      </div>
+
     </div>
 
   );
