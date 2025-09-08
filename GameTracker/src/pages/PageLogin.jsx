@@ -1,10 +1,11 @@
 import { useState } from "react"
-import backGround from "../assets/bggametracker.webp";
+import { useNavigate } from "react-router-dom";
 import logoPixel from '../assets/logo_pixel.png';
 import "./PageLogin.css"
 
-export const PageLogin = ()=> {
+export const PageLogin = () => {
   const [botaos, setBotaos] = useState({ email: "", senha: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,11 +13,11 @@ export const PageLogin = ()=> {
   };
 
   const handleEntrar = () => {
-    console.log("Entrar:", botaos);
+    navigate("/menu");
   };
 
   const handleCadastrar = () => {
-    console.log("Cadastrar:", botaos);
+    navigate("/register");
   };
 
   return (
@@ -26,12 +27,9 @@ export const PageLogin = ()=> {
       </header>
 
       <main>
-        <div className="backGround">
-
-        </div>
+        <div className="backGround"></div>
 
         <form className="painelCentral">
-
           <input
             type="email"
             name="email"
@@ -39,7 +37,6 @@ export const PageLogin = ()=> {
             value={botaos.email}
             onChange={handleChange}
           />
-
           <input
             type="password"
             name="senha"
@@ -55,10 +52,8 @@ export const PageLogin = ()=> {
           <button type="button" onClick={handleCadastrar}>
             Cadastrar
           </button>
-
         </form>
       </main>
-
       <div className="barra_embaixo">
           <footer>
             <div className="texto_embaixo">
@@ -74,8 +69,6 @@ export const PageLogin = ()=> {
             
           </footer>
       </div>
-
     </div>
-
   );
-}
+};
