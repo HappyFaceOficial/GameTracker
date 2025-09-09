@@ -90,6 +90,10 @@ main {
   transform: translate(-50%, -50%);
 }
 
+.texto_caixa{
+  color: rgb(255, 255, 255);
+}
+
 input {
   padding: 12px;
   border: 1px solid #ccc;
