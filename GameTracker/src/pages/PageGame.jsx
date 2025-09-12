@@ -9,7 +9,7 @@ export const PageGame = () => {
         <img src={logoPixel} alt="Logo Pixel" width="400px" />
         <nav className="PageGame-nav">
           <a href="#">Perfil</a>
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..."/>
         </nav>
       </header>
 

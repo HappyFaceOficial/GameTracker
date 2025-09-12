@@ -4,38 +4,40 @@ import logoPixel from "../assets/logo_pixel.png";
 import "./PageLogin.css";
 
 export const PageLogin = () => {
-  const [botaos, setBotaos] = useState({ email: "", senha: "" });
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBotaos((prev) => ({ ...prev, [name]: value }));
-  };
-
   const handleEntrar = async () => {
+    console.log("Tentando logar com:", { email, senha });
+
     try {
       const res = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({
-          email: botaos.email,
-          senha: botaos.senha,
-        }),
+        body: JSON.stringify({ email, senha }),
       });
 
-      const data = await res.json();
+      console.log("Resposta do fetch:", res);
+
+      const data = await res.json().catch(() => {
+        console.error("Erro ao converter resposta para JSON");
+        return null;
+      });
+
+      console.log("Dados recebidos:", data);
 
       if (!res.ok) {
-        alert(data.mensagem || "Usuário ou senha inválidos!");
+        alert(data?.mensagem || "Usuário ou senha inválidos!");
         return;
       }
 
-      alert(data.mensagem);
+      alert(data?.mensagem || "Login realizado com sucesso!");
       navigate("/menu");
     } catch (err) {
-      console.error("Erro no login:", err);
-      alert("Erro ao conectar com o servidor");
+      console.error("Erro no fetch:", err);
+      alert("Erro ao conectar com o servidor. Verifique se o backend está rodando e se a URL está correta.");
     }
   };
 
@@ -61,15 +63,15 @@ export const PageLogin = () => {
             type="email"
             name="email"
             placeholder="E-mail"
-            value={botaos.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             name="senha"
             placeholder="Senha"
-            value={botaos.senha}
-            onChange={handleChange}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
           />
 
           <button type="button" onClick={handleEntrar}>

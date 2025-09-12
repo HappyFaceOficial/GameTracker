@@ -4,17 +4,10 @@ import logoPixel from "../assets/logo_pixel.png";
 import "./PageRegister.css";
 
 export const PageRegister = () => {
-  const [botaos, setBotaos] = useState({ nome: "", email: "", senha: "" });
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBotaos((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleEntrarLogin = () => {
-    navigate("/");
-  };
 
   const handleCadastrar = async () => {
     try {
@@ -23,9 +16,9 @@ export const PageRegister = () => {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          nome: botaos.nome,
-          email: botaos.email,
-          senha: botaos.senha,
+          nome,
+          email,
+          senha,
         }),
       });
 
@@ -37,12 +30,18 @@ export const PageRegister = () => {
       }
 
       alert(data.mensagem || "Cadastro realizado com sucesso!");
-      setBotaos({ nome: "", email: "", senha: "" });
+      setNome("");
+      setEmail("");
+      setSenha("");
       navigate("/");
     } catch (err) {
       console.error("Erro no cadastro:", err);
       alert("Erro ao conectar com o servidor");
     }
+  };
+
+  const handleEntrarLogin = () => {
+    navigate("/login");
   };
 
   return (
@@ -63,24 +62,24 @@ export const PageRegister = () => {
             type="text"
             name="nome"
             placeholder="Nome"
-            value={botaos.nome}
-            onChange={handleChange}
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
           />
 
           <input
             type="email"
             name="email"
             placeholder="E-mail Novo"
-            value={botaos.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             type="password"
             name="senha"
             placeholder="Senha Nova"
-            value={botaos.senha}
-            onChange={handleChange}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
           />
 
           <button type="button" onClick={handleCadastrar}>
